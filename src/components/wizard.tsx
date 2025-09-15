@@ -71,6 +71,8 @@ export function Wizard() {
     setStep((step) => step - 1);
   };
 
+  const isPreviusEnabled = step === 0;
+
   const onSubmit = (data: WizardType) => {
     console.log("Dados enviados:", data);
   };
@@ -96,7 +98,7 @@ export function Wizard() {
           <div className="p-4">{steps[step].component()}</div>
 
           <div className="fixed w-full bottom-0 flex p-4 gap-4">
-            <Button type="button" onClick={back}>
+            <Button disabled={isPreviusEnabled} type="button" onClick={back}>
               Voltar
             </Button>
 
