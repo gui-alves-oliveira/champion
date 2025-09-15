@@ -1,4 +1,4 @@
-import { X, Plus } from "lucide-react";
+import { X } from "lucide-react";
 import { Dialog } from "./ui/dialog";
 import { Heading } from "./ui/heading";
 import { Button } from "./ui/button";
