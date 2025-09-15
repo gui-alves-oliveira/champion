@@ -78,22 +78,24 @@ export function Wizard() {
   const isLastStep = step === steps.length - 1;
 
   return (
-    <div className="p-4">
-      <div className="flex gap-2 items-center mb-6">
-        <Link className="inline-flex align-middle" to="/tournaments">
-          <ArrowLeft />
-        </Link>
-        <Heading intent="title" as="h1">
-          Criador de Torneio
-        </Heading>
+    <div>
+      <div className="px-4 pt-4">
+        <div className="flex gap-2 items-center mb-6">
+          <Link className="inline-flex align-middle" to="/tournaments">
+            <ArrowLeft />
+          </Link>
+          <Heading intent="title" as="h1">
+            Criador de Torneio
+          </Heading>
+        </div>
+        <Steper steps={steps} active={step} />
       </div>
-      <Steper steps={steps} active={step} />
 
       <FormProvider {...wizardForm}>
         <form onSubmit={wizardForm.handleSubmit(onSubmit)}>
-          {steps[step].component()}
+          <div className="p-4">{steps[step].component()}</div>
 
-          <div className="flex mt-6 gap-4">
+          <div className="fixed w-full bottom-0 flex p-4 gap-4">
             <Button type="button" onClick={back}>
               Voltar
             </Button>
@@ -104,7 +106,7 @@ export function Wizard() {
                 type="button"
                 onClick={wizardForm.handleSubmit(onSubmit)}
               >
-                Enviar
+                Criar torneio
               </Button>
             ) : (
               <Button type="button" onClick={next}>

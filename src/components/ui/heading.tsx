@@ -20,11 +20,17 @@ interface HeadingProps
   as?: "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
 }
 
-export function Heading({ intent, as, children, ...props }: HeadingProps) {
+export function Heading({
+  intent,
+  as,
+  className,
+  children,
+  ...props
+}: HeadingProps) {
   const Tag = as ?? "h3";
 
   return (
-    <Tag className={headingVariants({ intent })} {...props}>
+    <Tag className={headingVariants({ intent, className })} {...props}>
       {children}
     </Tag>
   );

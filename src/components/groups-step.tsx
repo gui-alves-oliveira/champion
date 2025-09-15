@@ -1,15 +1,16 @@
 import { X, Plus } from "lucide-react";
 import { Dialog } from "./ui/dialog";
 import { Heading } from "./ui/heading";
+import { Button } from "./ui/button";
 
 export function GroupsStep() {
   return (
     <div>
-      <Heading intent="subtitle" as="h2">
+      <Heading className="mb-4" intent="subtitle" as="h2">
         Grupos
       </Heading>
 
-      <div className="p-4 mb-6 border border-neutral-800 rounded">
+      <div className="p-4 mb-2 border border-neutral-800 rounded">
         <div className="mb-4 flex justify-between items-center">
           <h3 className="font-semibold">Grupo A</h3>
           <button>
@@ -34,7 +35,7 @@ export function GroupsStep() {
 
             <Dialog.Overlay />
             <Dialog.Content>
-              <Dialog.Title>
+              <Dialog.Title asChild>
                 <Heading>Selecione um time</Heading>
               </Dialog.Title>
             </Dialog.Content>
@@ -43,9 +44,7 @@ export function GroupsStep() {
       </div>
 
       <div className="flex flex-col items-center">
-        <button className="bg-neutral-800 size-12 rounded-full flex justify-center items-center">
-          <Plus size={16} />
-        </button>
+        <Button>Adicionar Grupo</Button>
       </div>
     </div>
   );
