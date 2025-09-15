@@ -125,7 +125,10 @@ export function Games() {
     <div ref={emblaRef}>
       <div className="flex gap-4">
         {data.map((round) => (
-          <div key={round.id} className="grow-0 shrink-0 basis-full">
+          <div
+            key={round.id}
+            className="grow-0 shrink-0 basis-full max-w-[95%]"
+          >
             <div className="mb-6 ">
               <h2 className="text-2xl font-bold">{round.name}</h2>
               <span className="text-xs">{`${dateFormatter.format(round.matchDateAndTime)} às ${timeFormatter.format(round.matchDateAndTime)}`}</span>

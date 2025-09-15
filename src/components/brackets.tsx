@@ -59,7 +59,10 @@ export function Brackets() {
     <div ref={emblaRef}>
       <div className="flex gap-4">
         {data.map((phase) => (
-          <div key={phase.id} className="grow-0 shrink-0 basis-full">
+          <div
+            key={phase.id}
+            className="grow-0 shrink-0 basis-full max-w-[95%]"
+          >
             <h2 className="mb-6 text-2xl font-bold">{phase.name}</h2>
             <div className="flex flex-col gap-4">
               {phase.matches.map((match, i) => (

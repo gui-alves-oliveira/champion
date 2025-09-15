@@ -1,7 +1,9 @@
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { Tabs } from "radix-ui";
-import { Brackets } from "../components/brackets";
-import { Games } from "../components/games";
-import { Group } from "../components/group";
+import { Games } from "../../components/games";
+import { Group } from "../../components/group";
+import { Brackets } from "../../components/brackets";
+import { ArrowLeft } from "lucide-react";
 
 const teams = [
   {
@@ -22,16 +24,24 @@ const teams = [
   },
 ];
 
-export function Home() {
+export const Route = createFileRoute("/tournaments/$slug")({
+  component: RouteComponent,
+});
+
+function RouteComponent() {
   const sortedTeams = [...teams].sort((a, b) => {
     if (b.points !== a.points) return b.points - a.points;
     return a.name.localeCompare(b.name);
   });
 
   return (
-    <div className="p-6 h-screen bg-neutral-900 text-white overflow-hidden">
-      <h1 className="text-2xl mb-8">VP Feminino - Iniciante</h1>
-
+    <div className="p-4">
+      <div className="mb-8 flex items-center gap-4">
+        <Link to="/tournaments">
+          <ArrowLeft />
+        </Link>
+        <h1 className="text-2xl text-nowrap">VP Feminino - Iniciante</h1>
+      </div>
       <Tabs.Root defaultValue="matches">
         <Tabs.List className="flex mb-6 gap-4">
           <Tabs.Trigger className="group flex flex-col gap-1" value="matches">
