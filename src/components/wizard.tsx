@@ -2,31 +2,33 @@ import { Steper } from "./steper";
 import { GroupsStep } from "./groups-step";
 import { FormProvider, useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { z } from "zod/v4";
+import { z } from "zod";
 import { useState, type ReactNode } from "react";
 import { TournamentStep } from "./tournament-step";
 
 const wizardSchema = z.object({
   tournamentTitle: z.string(),
+  startDate: z.date(),
+  endDate: z.date(),
 });
 
-type WizardType = z.Infer<typeof wizardSchema>;
+export type WizardType = z.Infer<typeof wizardSchema>;
 
 const steps: Array<{
   title: string;
-  component: ReactNode;
+  component: () => ReactNode;
 }> = [
   {
     title: "Campeonato",
-    component: <TournamentStep />,
+    component: () => <TournamentStep />,
   },
   {
     title: "Grupos",
-    component: <GroupsStep />,
+    component: () => <GroupsStep />,
   },
   {
     title: "Partidas",
-    component: (
+    component: () => (
       <div>
         <p>Partidas</p>
       </div>
@@ -34,7 +36,7 @@ const steps: Array<{
   },
   {
     title: "Revisão",
-    component: (
+    component: () => (
       <div>
         <p>Revisão</p>
       </div>
@@ -67,7 +69,7 @@ export function Wizard() {
 
       <FormProvider {...wizardForm}>
         <form onSubmit={wizardForm.handleSubmit(onSubmit)}>
-          {steps[step].component}
+          {steps[step].component()}
 
           <div className="flex gap-2">
             {step > 0 && (

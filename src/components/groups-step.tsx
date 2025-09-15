@@ -23,7 +23,7 @@ export function GroupsStep() {
           </div>
 
           <Dialog>
-            <Dialog.Trigger>
+            <Dialog.Trigger asChild>
               <button className="mt-2 text-sm bg-neutral-800 h-10 px-4 w-full rounded">
                 Adicionar Time
               </button>

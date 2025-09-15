@@ -7,6 +7,8 @@ const buttonVariants = tv({
       primary: "",
       secondary: "",
       transparent: "",
+      input:
+        "bg-neutral-900 border items-center border-neutral-700 ring-green-500 rounded px-3 py-1 flex h-9 w-full min-w-0 disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50 md:text-sm outline-none focus-visible:ring-ring/50 focus-visible:ring-[2px]",
     },
     size: {
       sm: "",
