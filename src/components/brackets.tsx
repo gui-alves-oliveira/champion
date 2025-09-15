@@ -28,6 +28,18 @@ const data: Array<Phase> = [
   },
   {
     id: 2,
+    name: "Disputa do 3º lugar",
+    matches: [
+      {
+        homeTeam: undefined,
+        homeScore: undefined,
+        awayTeam: undefined,
+        awayScore: undefined,
+      },
+    ],
+  },
+  {
+    id: 3,
     name: "Final",
     matches: [
       {
@@ -48,7 +60,7 @@ export function Brackets() {
       <div className="flex gap-4">
         {data.map((phase) => (
           <div key={phase.id} className="grow-0 shrink-0 basis-full">
-            <h2 className="mb-6 text-2xl font-bold">Semi-final</h2>
+            <h2 className="mb-6 text-2xl font-bold">{phase.name}</h2>
             <div className="flex flex-col gap-4">
               {phase.matches.map((match, i) => (
                 <Match key={i} match={match} />
