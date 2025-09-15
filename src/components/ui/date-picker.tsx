@@ -6,7 +6,7 @@ import { format } from "date-fns";
 import { ptBR } from "date-fns/locale";
 
 interface DatePickerProps {
-  value: Date | null;
+  value: Date | undefined;
   onChange: (date: Date) => void;
 }
 
@@ -24,7 +24,12 @@ export function DatePicker({ value, onChange }: DatePickerProps) {
         </Button>
       </Popover.Trigger>
       <Popover.Content>
-        <Calendar mode="single" selected={value} onSelect={onChange} />
+        <Calendar
+          mode="single"
+          selected={value ?? undefined}
+          onSelect={(date) => date && onChange(date)}
+          required={false}
+        />
       </Popover.Content>
     </Popover>
   );
