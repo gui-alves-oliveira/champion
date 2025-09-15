@@ -1,4 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
+import { Heading } from "../../components/ui/heading";
 
 export const Route = createFileRoute("/tournaments/")({
   component: RouteComponent,
@@ -28,8 +29,10 @@ const data = [
 function RouteComponent() {
   return (
     <div className="p-4 flex flex-col">
-      <div className="flex justify-between">
-        <h1 className="mb-6 text-2xl text-nowrap">Campeonatos</h1>
+      <div className="mb-6 flex justify-between">
+        <Heading intent="title" as="h1">
+          Campeonatos
+        </Heading>
         <Link
           to="/tournaments/create"
           className="bg-green-500 text-green-950 text-xs px-4 h-8 flex items-center rounded"

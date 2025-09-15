@@ -1,5 +1,6 @@
 import useEmblaCarousel from "embla-carousel-react";
 import { Match, type IMatch } from "./match";
+import { Heading } from "./ui/heading";
 
 interface Round {
   id: number;
@@ -130,7 +131,9 @@ export function Games() {
             className="grow-0 shrink-0 basis-full max-w-[95%]"
           >
             <div className="mb-6 ">
-              <h2 className="text-2xl font-bold">{round.name}</h2>
+              <Heading intent="subtitle" as="h2">
+                {round.name}
+              </Heading>
               <span className="text-xs">{`${dateFormatter.format(round.matchDateAndTime)} às ${timeFormatter.format(round.matchDateAndTime)}`}</span>
             </div>
 

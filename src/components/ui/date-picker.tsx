@@ -18,7 +18,7 @@ export function DatePicker({ value, onChange }: DatePickerProps) {
           {value ? (
             format(value, "PPP", { locale: ptBR })
           ) : (
-            <span>Pick a date</span>
+            <span>Escolha uma data</span>
           )}
           <CalendarIcon className="ml-auto text-neutral-600" size={16} />
         </Button>

@@ -5,6 +5,10 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import { useState, type ReactNode } from "react";
 import { TournamentStep } from "./tournament-step";
+import { Button } from "./ui/button";
+import { Heading } from "./ui/heading";
+import { Link } from "@tanstack/react-router";
+import { ArrowLeft } from "lucide-react";
 
 const wizardSchema = z.object({
   tournamentTitle: z.string(),
@@ -52,10 +56,18 @@ export function Wizard() {
   const [step, setStep] = useState(0);
 
   const next = async () => {
+    if (step === steps.length - 1) {
+      return;
+    }
+
     setStep((step) => step + 1);
   };
 
   const back = async () => {
+    if (step === 0) {
+      return;
+    }
+
     setStep((step) => step - 1);
   };
 
@@ -63,26 +75,41 @@ export function Wizard() {
     console.log("Dados enviados:", data);
   };
 
+  const isLastStep = step === steps.length - 1;
+
   return (
     <div className="p-4">
+      <div className="flex gap-2 items-center mb-6">
+        <Link className="inline-flex align-middle" to="/tournaments">
+          <ArrowLeft />
+        </Link>
+        <Heading intent="title" as="h1">
+          Criador de Torneio
+        </Heading>
+      </div>
       <Steper steps={steps} active={step} />
 
       <FormProvider {...wizardForm}>
         <form onSubmit={wizardForm.handleSubmit(onSubmit)}>
           {steps[step].component()}
 
-          <div className="flex gap-2">
-            {step > 0 && (
-              <button type="button" onClick={back}>
-                Voltar
-              </button>
-            )}
-            {step < steps.length - 1 ? (
-              <button type="button" onClick={next}>
-                Próximo
-              </button>
+          <div className="flex mt-6 gap-4">
+            <Button type="button" onClick={back}>
+              Voltar
+            </Button>
+
+            {isLastStep ? (
+              <Button
+                intent="primary"
+                type="button"
+                onClick={wizardForm.handleSubmit(onSubmit)}
+              >
+                Enviar
+              </Button>
             ) : (
-              <button type="submit">Enviar</button>
+              <Button type="button" onClick={next}>
+                Proximo
+              </Button>
             )}
           </div>
         </form>

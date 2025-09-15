@@ -16,6 +16,7 @@ const DialogContent = ({
 export const Dialog = Object.assign(DialogPrimitive.Root, {
   Overlay: DialogOverlay,
   Trigger: DialogPrimitive.Trigger,
+  Title: DialogPrimitive.Title,
   Portal: DialogPrimitive.Portal,
   Content: DialogContent,
 });

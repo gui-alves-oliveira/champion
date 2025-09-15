@@ -1,10 +1,13 @@
 import { X, Plus } from "lucide-react";
 import { Dialog } from "./ui/dialog";
+import { Heading } from "./ui/heading";
 
 export function GroupsStep() {
   return (
     <div>
-      <h2 className="text-2xl font-bold mb-4">Grupos</h2>
+      <Heading intent="subtitle" as="h2">
+        Grupos
+      </Heading>
 
       <div className="p-4 mb-6 border border-neutral-800 rounded">
         <div className="mb-4 flex justify-between items-center">
@@ -31,7 +34,9 @@ export function GroupsStep() {
 
             <Dialog.Overlay />
             <Dialog.Content>
-              <h3>Selecione um time</h3>
+              <Dialog.Title>
+                <Heading>Selecione um time</Heading>
+              </Dialog.Title>
             </Dialog.Content>
           </Dialog>
         </div>

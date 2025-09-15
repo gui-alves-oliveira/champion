@@ -5,7 +5,7 @@ export function Header() {
   return (
     <header className="flex px-4 justify-end items-center h-14 bg-neutral-800">
       <Dialog.Root>
-        <Dialog.Trigger>
+        <Dialog.Trigger asChild>
           <button>
             <Menu />
           </button>

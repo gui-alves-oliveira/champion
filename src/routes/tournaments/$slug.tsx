@@ -4,6 +4,7 @@ import { Games } from "../../components/games";
 import { Group } from "../../components/group";
 import { Brackets } from "../../components/brackets";
 import { ArrowLeft } from "lucide-react";
+import { Heading } from "../../components/ui/heading";
 
 const teams = [
   {
@@ -37,10 +38,12 @@ function RouteComponent() {
   return (
     <div className="p-4">
       <div className="mb-8 flex items-center gap-4">
-        <Link to="/tournaments">
+        <Link className="inline-flex align-middle" to="/tournaments">
           <ArrowLeft />
         </Link>
-        <h1 className="text-2xl text-nowrap">VP Feminino - Iniciante</h1>
+        <Heading intent="title" as="h1">
+          VP Feminino - Iniciante
+        </Heading>
       </div>
       <Tabs.Root defaultValue="matches">
         <Tabs.List className="flex mb-6 gap-4">

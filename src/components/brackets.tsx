@@ -1,5 +1,6 @@
 import useEmblaCarousel from "embla-carousel-react";
 import { Match, type IMatch } from "./match";
+import { Heading } from "./ui/heading";
 
 interface Phase {
   id: number;
@@ -63,7 +64,9 @@ export function Brackets() {
             key={phase.id}
             className="grow-0 shrink-0 basis-full max-w-[95%]"
           >
-            <h2 className="mb-6 text-2xl font-bold">{phase.name}</h2>
+            <Heading intent="subtitle" as="h2">
+              {phase.name}
+            </Heading>
             <div className="flex flex-col gap-4">
               {phase.matches.map((match, i) => (
                 <Match key={i} match={match} />
