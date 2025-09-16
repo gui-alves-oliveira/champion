@@ -7,7 +7,7 @@ export const Route = createRootRoute({
 
 function RootComponent() {
   return (
-    <div className="h-screen bg-neutral-900 text-white overflow-hidden">
+    <div className="h-dvh bg-neutral-900 text-white overflow-hidden">
       <Header />
       <Outlet />
     </div>
