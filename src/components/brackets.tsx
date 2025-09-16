@@ -64,7 +64,7 @@ export function Brackets() {
             key={phase.id}
             className="grow-0 shrink-0 basis-full max-w-[95%]"
           >
-            <Heading intent="subtitle" as="h2">
+            <Heading className="mb-2" intent="subtitle" as="h2">
               {phase.name}
             </Heading>
             <div className="flex flex-col gap-4">

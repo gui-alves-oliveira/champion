@@ -23,12 +23,14 @@ export function DatePicker({ value, onChange }: DatePickerProps) {
           <CalendarIcon className="ml-auto text-neutral-600" size={16} />
         </Button>
       </Popover.Trigger>
-      <Popover.Content>
+      <Popover.Content align="start" sideOffset={4}>
         <Calendar
           mode="single"
           selected={value ?? undefined}
           onSelect={(date) => date && onChange(date)}
           required={false}
+          navLayout="around"
+          showOutsideDays
         />
       </Popover.Content>
     </Popover>

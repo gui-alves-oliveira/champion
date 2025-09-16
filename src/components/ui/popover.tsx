@@ -7,7 +7,7 @@ function PopoverContent({
 }: ComponentProps<typeof PopoverPrimitive.Content>) {
   return (
     <PopoverPrimitive.Content
-      className="p-4 rounded-lg border border-neutral-800 bg-neutral-900 shadow-lg"
+      className="min-w-full p-4 rounded-lg border z-50 border-neutral-800 bg-neutral-900 shadow-lg"
       {...props}
     >
       {children}
