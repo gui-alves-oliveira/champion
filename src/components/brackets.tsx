@@ -8,58 +8,13 @@ interface Phase {
   matches: IMatch[];
 }
 
-const data: Array<Phase> = [
-  {
-    id: 1,
-    name: "Semi-finais",
-    matches: [
-      {
-        homeTeam: undefined,
-        homeScore: undefined,
-        awayTeam: undefined,
-        awayScore: undefined,
-      },
-      {
-        homeTeam: undefined,
-        homeScore: undefined,
-        awayTeam: undefined,
-        awayScore: undefined,
-      },
-    ],
-  },
-  {
-    id: 2,
-    name: "Disputa do 3º lugar",
-    matches: [
-      {
-        homeTeam: undefined,
-        homeScore: undefined,
-        awayTeam: undefined,
-        awayScore: undefined,
-      },
-    ],
-  },
-  {
-    id: 3,
-    name: "Final",
-    matches: [
-      {
-        homeTeam: undefined,
-        homeScore: undefined,
-        awayTeam: undefined,
-        awayScore: undefined,
-      },
-    ],
-  },
-];
-
-export function Brackets() {
+export function Brackets({ brackets }: { brackets: Array<Phase> }) {
   const [emblaRef] = useEmblaCarousel();
 
   return (
     <div ref={emblaRef}>
       <div className="flex gap-4">
-        {data.map((phase) => (
+        {brackets.map((phase) => (
           <div
             key={phase.id}
             className="grow-0 shrink-0 basis-full max-w-[95%]"

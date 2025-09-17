@@ -1,16 +1,18 @@
-import { createFileRoute } from "@tanstack/react-router";
-import { Calendar } from "../components/ui/calendar";
+import { createFileRoute, redirect } from "@tanstack/react-router";
 
 export const Route = createFileRoute("/")({
+  loader: () => {
+    throw redirect({
+      to: "/tournaments"
+    })
+  },
   component: RouteComponent,
 });
 
 function RouteComponent() {
   return (
     <div>
-      <p>oi</p>
-
-      <Calendar />
+      <p>index</p>
     </div>
   );
 }

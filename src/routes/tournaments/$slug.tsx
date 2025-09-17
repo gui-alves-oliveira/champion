@@ -5,35 +5,24 @@ import { Group } from "../../components/group";
 import { Brackets } from "../../components/brackets";
 import { ArrowLeft } from "lucide-react";
 import { Heading } from "../../components/ui/heading";
-
-const teams = [
-  {
-    name: "Verde",
-    points: 0,
-  },
-  {
-    name: "Azul",
-    points: 0,
-  },
-  {
-    name: "Amarelo",
-    points: 0,
-  },
-  {
-    name: "Branco",
-    points: 0,
-  },
-];
+import {
+  getBrackets,
+  getGames,
+  getGroups,
+  getTournamentBySlug,
+} from "../../data/tournaments";
 
 export const Route = createFileRoute("/tournaments/$slug")({
   component: RouteComponent,
 });
 
 function RouteComponent() {
-  const sortedTeams = [...teams].sort((a, b) => {
-    if (b.points !== a.points) return b.points - a.points;
-    return a.name.localeCompare(b.name);
-  });
+  const { slug } = Route.useParams();
+
+  const tournament = getTournamentBySlug(slug);
+  const groups = getGroups(slug);
+  const brackets = getBrackets(slug);
+  const games = getGames(slug);
 
   return (
     <div className="p-4">
@@ -42,7 +31,7 @@ function RouteComponent() {
           <ArrowLeft />
         </Link>
         <Heading intent="title" as="h1">
-          VP Feminino - Iniciante
+          {tournament?.title}
         </Heading>
       </div>
       <Tabs.Root defaultValue="matches">
@@ -68,13 +57,13 @@ function RouteComponent() {
         </Tabs.List>
 
         <Tabs.Content value="matches">
-          <Games />
+          <Games games={games} />
         </Tabs.Content>
         <Tabs.Content value="group-phase">
-          <Group teams={sortedTeams} />
+          <Group teams={groups[0].teams} />
         </Tabs.Content>
         <Tabs.Content value="brackets-phase">
-          <Brackets />
+          <Brackets brackets={brackets} />
         </Tabs.Content>
       </Tabs.Root>
     </div>
