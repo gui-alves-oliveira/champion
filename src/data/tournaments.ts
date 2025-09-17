@@ -173,7 +173,7 @@ export const tournaments = [
   },
   {
     id: "2",
-    title: "VP Feminino - Intermediario Quarteto",
+    title: "VP Feminino - Intermediário Quarteto",
     slug: "vp-feminino-intermediario-quarteto",
     tournament: {
       games: [
@@ -345,14 +345,14 @@ export const tournaments = [
   },
   {
     id: "3",
-    title: "VP Feminino - Intermediario Duplas",
+    title: "VP Feminino - Intermediário Duplas",
     slug: "vp-feminino-intermediario-duplas",
     tournament: {
       games: [
         {
           id: 1,
           name: "Rodada 1",
-          matchDateAndTime: new Date("2025-09-17T18:00:00"),
+          matchDateAndTime: new Date("2025-10-01T18:00:00"),
           matches: [
             {
               homeTeam: "Verde",
@@ -371,7 +371,7 @@ export const tournaments = [
         {
           id: 2,
           name: "Rodada 2",
-          matchDateAndTime: new Date("2025-09-22T18:00:00"),
+          matchDateAndTime: new Date("2025-10-06T18:00:00"),
           matches: [
             {
               homeTeam: "Verde",
@@ -390,7 +390,7 @@ export const tournaments = [
         {
           id: 3,
           name: "Rodada 3",
-          matchDateAndTime: new Date("2025-09-24T18:00:00"),
+          matchDateAndTime: new Date("2025-10-08T18:00:00"),
           matches: [
             {
               homeTeam: "Verde",
@@ -409,7 +409,7 @@ export const tournaments = [
         {
           id: 4,
           name: "Semi-finais",
-          matchDateAndTime: new Date("2025-09-29T18:00:00"),
+          matchDateAndTime: new Date("2025-10-13T18:00:00"),
           matches: [
             {
               homeTeam: undefined,
@@ -428,7 +428,7 @@ export const tournaments = [
         {
           id: 5,
           name: "Finais",
-          matchDateAndTime: new Date("2025-10-01T18:00:00"),
+          matchDateAndTime: new Date("2025-10-15T18:00:00"),
           matches: [
             {
               homeTeam: undefined,
